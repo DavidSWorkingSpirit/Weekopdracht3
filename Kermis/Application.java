@@ -1,11 +1,15 @@
 package Kermis;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class Application {
 	static Scanner sc = new Scanner(System.in);
 		
 	public static void main(String[] args) {
+		Random randy = new Random();
+		int inspecteurBeurt = randy.nextInt(15) + 1;
+		
 		Kassa kassa = new Kassa();
 		
 		Botsauto bots = new Botsauto();
@@ -89,13 +93,12 @@ public class Application {
 					break;
 				}
 				case "o": {
-					kassa.omzetTotaal(bots.omzet, spin.omzet, spiegel.omzet, spook.omzet, hawaii.omzet, ladder.omzetLadder);
-					System.out.println("De omzet van de attractie " + bots.naam + " is " + bots.omzet + " euro.");
-					System.out.println("De omzet van de attractie " + spin.naam + " is " + spin.omzet + " euro.");
-					System.out.println("De omzet van de attractie " + spiegel.naam + " is " + spiegel.omzet + " euro.");
-					System.out.println("De omzet van de attractie " + spook.naam + " is " + spook.omzet + " euro.");
-					System.out.println("De omzet van de attractie " + hawaii.naam + " is " + hawaii.omzet + " euro.");
-					System.out.println("De omzet van de attractie " + ladder.naam + " is " + ladder.omzetLadder + " euro.");
+					kassa.omzetTotaal(	bots.naam, bots.omzet,
+										spin.naam, spin.omzet,
+										spiegel.naam, spiegel.omzet,
+										spook.naam, spook.omzet,
+										hawaii.naam, hawaii.omzet,
+										ladder.naam, ladder.totaalOmzet);
 					break;
 				}
 				case "k": {
@@ -113,144 +116,6 @@ public class Application {
 				}
 			}
 		}	
-	}
-}
-
-class Attractie {
-	
-	String naam;
-	double prijs;
-	int oppervlakte;
-	static int totaalKaartjesVerkocht;
-	
-	void draaien() {
-		
-	}
-	
-	void setName(String naam) {
-		this.naam = naam;
-	}
-	
-	void setPrijs(double prijs) {
-		this.prijs = prijs;
-	}
-}
-
-abstract class RisicoRijkeAttracties extends Attractie{
-	
-	int draaiLimiet;
-	
-	abstract void opstellingsKeuring();
-	
-	void setDraaiLimiet(int draaiLimiet) {
-		this.draaiLimiet = draaiLimiet;
-	}
-}
-
-interface GokAttractie {
-	
-	void kansSpelBelastingBetalen(double belasting);
-}
-
-class Botsauto extends Attractie {
-
-	int oppervlakte;
-	double omzet;
-	int aantalKaartjes;
-	
-	@Override
-	void draaien() {
-		System.out.println("De attractie \"" + this.naam + "\" draait.");
-	}
-}
-
-class Spin extends RisicoRijkeAttracties {
-	
-	int oppervlakte;
-	double omzet;
-	int aantalKaartjes;
-	int aantalGedraaid = 0;
-	
-	@Override
-	void draaien() {
-		System.out.println("De attractie \"" + this.naam + "\" draait.");
-	}
-	
-	void opstellingsKeuring() {
-		System.out.println("De attractie \"" + this.naam + "\" ondergaat een onderhoudsbeurt en mag niet draaien voordat een andere attractie heeft gedraait.");
-		this.aantalGedraaid = 0;
-	}
-}
-
-class Spiegelpaleis extends Attractie {
-	
-	int oppervlakte;
-	double omzet;
-	int aantalKaartjes;
-	
-	@Override
-	void draaien() {
-		System.out.println("De attractie \"" + this.naam + "\" draait.");
-	}
-}
-
-class Spookhuis extends Attractie {
-	
-	int oppervlakte;
-	double omzet;
-	int aantalKaartjes;
-	
-	@Override
-	void draaien() {
-		System.out.println("De attractie \"" + this.naam + "\" draait.");
-	}
-}
-
-class Hawaii extends RisicoRijkeAttracties {
-	
-	int oppervlakte;
-	double omzet;
-	int aantalKaartjes;
-	int aantalGedraaid = 0;
-	
-	@Override
-	void draaien() {
-		System.out.println("De attractie \"" + this.naam + "\" draait.");
-	}
-	
-	void opstellingsKeuring() {
-		System.out.println("De attractie \"" + this.naam + "\" ondergaat een onderhoudsbeurt en mag niet draaien voordat een andere attractie heeft gedraait.");
-		this.aantalGedraaid = 0;
-	}
-}
-
-class Ladderklimmen extends Attractie implements GokAttractie {
-	
-	int oppervlakte;
-	double omzet;
-	int aantalKaartjes;
-	double omzetMetBelasting;
-	double omzetLadder;
-	
-	@Override
-	void draaien() {
-		System.out.println("De attractie \"" + this.naam + "\" draait.");
-	}
-	
-	public void kansSpelBelastingBetalen(double belasting) {
-		omzetMetBelasting = omzet - omzet * belasting;
-		omzetLadder = omzetLadder + omzetMetBelasting;
-		omzet = 0;
-	}
-}
-
-class Kassa {
-	
-	double totaalOmzet = 0.00;
-	
-	void omzetTotaal(double botsautoOmzet, double spinOmzet, double spiegelOmzet, double spookOmzet, double hawaiiOmzet, double ladderOmzet) {
-		totaalOmzet = botsautoOmzet + spinOmzet + spiegelOmzet + spookOmzet + hawaiiOmzet + ladderOmzet;
-		System.out.println("De totale omzet van de kermis is " + totaalOmzet + " euro.");
 	}
 }
 
