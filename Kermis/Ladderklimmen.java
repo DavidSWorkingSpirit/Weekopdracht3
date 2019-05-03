@@ -13,8 +13,10 @@ class Ladderklimmen extends Attractie implements GokAttractie {
 		System.out.println("De attractie \"" + this.naam + "\" draait.");
 	}
 	
-	public void kansSpelBelastingBetalen(double belasting) {
-		omzetMetBelasting = omzet - omzet * belasting;
+	public void kansSpelBelastingBetalen() {
+
+		BelastingInspecteur bob = new BelastingInspecteur();
+		omzetMetBelasting= bob.belastingInnen(0.30, this.omzet);
 		totaalOmzet = totaalOmzet + omzetMetBelasting;
 		omzet = 0;
 	}

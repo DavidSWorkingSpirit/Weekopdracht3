@@ -2,7 +2,7 @@ package Kermis;
 
 class Kassa {
 	
-	double totaalOmzet = 0.00;
+	private double totaalOmzet = 0.00;
 	
 	void omzetTotaal(	String botsNaam, double botsOmzet,
 						String spinNaam, double spinOmzet, 

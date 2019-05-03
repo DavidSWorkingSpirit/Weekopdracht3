@@ -2,5 +2,5 @@ package Kermis;
 
 interface GokAttractie {
 	
-	void kansSpelBelastingBetalen(double belasting);
+	void kansSpelBelastingBetalen();
 }

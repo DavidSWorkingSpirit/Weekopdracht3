@@ -6,6 +6,11 @@ class Attractie {
 	double prijs;
 	int oppervlakte;
 	static int totaalKaartjesVerkocht;
+	//Is dit wel goed?!
+	double omzet;
+	double omzetMetBelasting;
+	double totaalOmzet;
+	//=================
 	
 	void draaien() {
 		

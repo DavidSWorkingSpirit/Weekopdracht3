@@ -13,7 +13,7 @@ class Hawaii extends RisicoRijkeAttracties {
 	}
 	
 	void opstellingsKeuring() {
-		System.out.println("De attractie \"" + this.naam + "\" ondergaat een onderhoudsbeurt en mag niet draaien voordat een andere attractie heeft gedraait.");
+		System.out.println("De attractie \"" + this.naam + "\" ondergaat een onderhoudsbeurt.");
 		this.aantalGedraaid = 0;
 	}
 }
