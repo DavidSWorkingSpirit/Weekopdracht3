@@ -49,10 +49,6 @@ public class Application {
 					spin.setDraaiLimiet(5);
 					spin.setPrijs(2.25);
 					if (spin.aantalGedraaid != spin.draaiLimiet) {
-//						if(spin.aantalGedraaid == spin.draaiLimiet) {
-//							spin.opstellingsKeuring();
-//							break;
-//						}
 						spin.draaien();
 						spin.aantalKaartjes = spin.aantalKaartjes + 1;
 						Attractie.totaalKaartjesVerkocht = Attractie.totaalKaartjesVerkocht + 1;
@@ -93,10 +89,6 @@ public class Application {
 					hawaii.setDraaiLimiet(10);
 					hawaii.setPrijs(2.90);
 					if (hawaii.aantalGedraaid != hawaii.draaiLimiet) {
-//					if(hawaii.aantalGedraaid == hawaii.draaiLimiet) {
-//						hawaii.opstellingsKeuring();
-//						break;
-//					}
 					hawaii.draaien();
 					hawaii.aantalKaartjes = hawaii.aantalKaartjes + 1;
 					Attractie.totaalKaartjesVerkocht = Attractie.totaalKaartjesVerkocht + 1;
