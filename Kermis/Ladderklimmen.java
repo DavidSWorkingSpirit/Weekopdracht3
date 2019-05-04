@@ -11,6 +11,10 @@ class Ladderklimmen extends Attractie implements GokAttractie {
 	@Override
 	void draaien() {
 		System.out.println("De attractie \"" + this.naam + "\" draait.");
+		this.aantalKaartjes = this.aantalKaartjes + 1;
+		Attractie.totaalKaartjesVerkocht = Attractie.totaalKaartjesVerkocht + 1;
+		this.omzet = this.omzet + this.prijs;
+//		totaalOmzet = omzet;
 	}
 	
 	public void kansSpelBelastingBetalen() {

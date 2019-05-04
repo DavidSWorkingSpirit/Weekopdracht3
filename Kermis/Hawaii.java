@@ -10,6 +10,9 @@ class Hawaii extends RisicoRijkeAttracties {
 	@Override
 	void draaien() {
 		System.out.println("De attractie \"" + this.naam + "\" draait.");
+		this.aantalKaartjes = this.aantalKaartjes + 1;
+		Attractie.totaalKaartjesVerkocht = Attractie.totaalKaartjesVerkocht + 1;
+		this.omzet = this.omzet + this.prijs;
 	}
 	
 	void opstellingsKeuring() {
