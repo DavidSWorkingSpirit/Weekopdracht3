@@ -10,12 +10,16 @@ class Spin extends RisicoRijkeAttracties implements GokAttractie {
 	double totaalOmzet;
 	
 	@Override
-	void draaien() {
+	void draaien(String naam, double prijs) {
+		
+		this.naam = naam;
+		this.prijs = prijs;
+		
 		System.out.println("De attractie \"" + this.naam + "\" draait.");
 		this.aantalKaartjes = this.aantalKaartjes + 1;
 		Attractie.totaalKaartjesVerkocht = Attractie.totaalKaartjesVerkocht + 1;
 		this.omzet = this.omzet + this.prijs;
-//		totaalOmzet = omzet;
+		Application.beurt++;
 	}
 	
 	void opstellingsKeuring() {

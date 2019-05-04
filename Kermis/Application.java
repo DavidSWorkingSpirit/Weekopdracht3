@@ -5,11 +5,11 @@ import java.util.Scanner;
 
 public class Application {
 	static Scanner sc = new Scanner(System.in);
+	static int beurt = 1;
 		
 	public static void main(String[] args) {
 		Random randy = new Random();
 		int inspecteurBeurt = randy.nextInt(15) + 1;
-		int beurt = 1;
 		
 		Kassa kassa = new Kassa();
 		Botsauto bots = new Botsauto();
@@ -30,23 +30,13 @@ public class Application {
 			
 			switch(invoer) {
 				case "1": {
-					bots.setName("botsauto's");
-					bots.setPrijs(2.50);
-					bots.draaien();
-//					bots.aantalKaartjes = bots.aantalKaartjes + 1;
-//					Attractie.totaalKaartjesVerkocht = Attractie.totaalKaartjesVerkocht + 1;
-//					bots.omzet = bots.omzet + bots.prijs;
+					bots.draaien("botsauto's", 2.50);
 					break;
 				}
 				case "2": {
-					spin.setName("de Spin");
 					spin.setDraaiLimiet(5);
-					spin.setPrijs(2.25);
 					if (spin.aantalGedraaid != spin.draaiLimiet) {
-						spin.draaien();
-//						spin.aantalKaartjes = spin.aantalKaartjes + 1;
-//						Attractie.totaalKaartjesVerkocht = Attractie.totaalKaartjesVerkocht + 1;
-//						spin.omzet = spin.omzet + spin.prijs;
+						spin.draaien("de Spin", 2.25);
 						spin.aantalGedraaid++;
 						break;
 					}
@@ -61,32 +51,17 @@ public class Application {
 					}
 				}
 				case "3": {
-					spiegel.setName("spiegelpaleis");
-					spiegel.setPrijs(2.75);
-					spiegel.draaien();
-//					spiegel.aantalKaartjes = spiegel.aantalKaartjes + 1;
-//					Attractie.totaalKaartjesVerkocht = Attractie.totaalKaartjesVerkocht + 1;
-//					spiegel.omzet = spiegel.omzet + spiegel.prijs;
+					spiegel.draaien("spiegelpaleis", 2.75);
 					break;
 				}
 				case "4": {
-					spook.setName("spookhuis");
-					spook.setPrijs(3.20);
-					spook.draaien();
-//					spook.aantalKaartjes = spook.aantalKaartjes + 1;
-//					Attractie.totaalKaartjesVerkocht = Attractie.totaalKaartjesVerkocht + 1;
-//					spook.omzet = spook.omzet + spook.prijs;
+					spook.draaien("spookhuis", 3.20);
 					break;
 				}
 				case "5": {
-					hawaii.setName("hawaii");
 					hawaii.setDraaiLimiet(10);
-					hawaii.setPrijs(2.90);
 					if (hawaii.aantalGedraaid != hawaii.draaiLimiet) {
-					hawaii.draaien();
-//					hawaii.aantalKaartjes = hawaii.aantalKaartjes + 1;
-//					Attractie.totaalKaartjesVerkocht = Attractie.totaalKaartjesVerkocht + 1;
-//					hawaii.omzet = hawaii.omzet + hawaii.prijs;
+					hawaii.draaien("hawaii", 2.90);
 					hawaii.aantalGedraaid++;
 					break;
 					}
@@ -101,12 +76,7 @@ public class Application {
 					}
 				}
 				case "6": {
-					ladder.setName("ladderklimmen");
-					ladder.setPrijs(5.00);
-					ladder.draaien();
-//					ladder.aantalKaartjes = ladder.aantalKaartjes + 1;
-//					Attractie.totaalKaartjesVerkocht = Attractie.totaalKaartjesVerkocht + 1;
-//					ladder.omzet = ladder.omzet + ladder.prijs;
+					ladder.draaien("ladderklimmen", 5.00);
 					break;
 				}
 				case "m": {
@@ -164,8 +134,6 @@ public class Application {
 				inspecteurBeurt = randy.nextInt(15) + 1;
 				beurt = 1;
 			}
-			
-			beurt++;
 		}	
 	}
 }

@@ -9,15 +9,7 @@ class Attractie {
 	double omzet;
 
 	
-	void draaien() {
+	void draaien(String naam, double prijs) {
 		
-	}
-	
-	void setName(String naam) {
-		this.naam = naam;
-	}
-	
-	void setPrijs(double prijs) {
-		this.prijs = prijs;
 	}
 }
